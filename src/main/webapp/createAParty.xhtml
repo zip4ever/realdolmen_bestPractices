@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <ui:define name="events">
+        <f:event type="preRenderView" listener="#{partyController.init()}"/>
+    </ui:define>
+</h:head>
+<h:body>
+
+    <h:form>
+        <table>
+            <tr>
+                <td><h:outputLabel value="Name"/></td>
+                <td><h:inputText value="#{partyController.party.name}"/></td>
+            </tr>
+            <tr>
+                <td><h:outputLabel value="Price"/></td>
+                <td><h:inputText value="#{partyController.party.ticketPrice}"/></td>
+            </tr>
+            <tr>
+                <td><h:outputLabel value="Location"/> </td>
+                <td><h:inputText value="#{partyController.party.location}"/></td>
+            </tr>
+            <tr>
+                <td><h:outputLabel value="DJ"/> </td>
+                <td><h:inputText value="#{partyController.party.dj}"/></td>
+            </tr>
+            <tr>
+                <td><h:outputLabel value="Alcohol allowed"/> </td>
+                <td>
+                    <h:selectOneMenu value="#{partyController.party.alcoholAllowed}" >
+                        <f:selectItem itemLabel="Sure do!" itemValue="true" />
+                        <f:selectItem itemLabel="Nope" itemValue="false"/>
+                    </h:selectOneMenu>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><p:commandButton action="#{partyController.createAParty()}" value="Create A Party"/></td>
+            </tr>
+        </table>
+
+    </h:form>
+
+
+
+</h:body>
+</html>
